@@ -1,0 +1,99 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2020/08/01 09:54:28
+// Design Name: 
+// Module Name: control1
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+module control1(clk,upbt,downbt,rightbt,leftbt,row1,line1,key1);
+input clk;
+input upbt;
+input downbt;
+input rightbt;
+input leftbt;
+input key1;
+output  [7:0]row1;
+output  [7:0]line1;
+wire [7:0]row1;
+wire [7:0]line1;
+wire box;
+wire [7:0]row;
+wire [7:0]line;
+wire [3:0] body_x0;
+wire [3:0] body_y0;
+wire [3:0] body_x1;
+wire [3:0] body_y1;
+wire [3:0] body_x2; 
+wire [3:0] body_y2;
+wire [3:0] body_x3; 
+wire [3:0] body_y3;
+wire [3:0] body_x4; 
+wire [3:0] body_y4;    
+wire [3:0] body_x5; 
+wire [3:0] body_y5;
+wire[3:0]box_x;
+wire[3:0]box_y;
+wire game_over1;
+wire game_over2;
+snake test1(
+        .clk(clk),
+        .upbt(upbt),
+        .downbt(downbt),
+        .rightbt(rightbt),
+        .leftbt(leftbt),   
+        .box_x(box_x),
+        .box_y(box_y),
+        .body_x0(body_x0),
+        .body_y0(body_y0),
+        .body_x1(body_x1),
+        .body_y1(body_y1),
+        .body_x2(body_x2),
+        .body_y2(body_y2),
+        .body_x3(body_x3),
+        .body_y3(body_y3),
+        .body_x4(body_x4),
+        .body_y4(body_y4),
+        .body_x5(body_x5),
+        .body_y5(body_y5),
+        .box(box),
+        .game_over1(game_over1),
+        .game_over2(game_over2)   
+  );  
+
+   show test4(
+        .clk(clk),
+        .game_over1(game_over1),
+        .game_over2(game_over2),   
+        .box_x(box_x),
+        .box_y(box_y),
+        .body_x0(body_x0),
+        .body_y0(body_y0),
+        .body_x1(body_x1),
+        .body_y1(body_y1),
+        .body_x2(body_x2),
+        .body_y2(body_y2),
+        .body_x3(body_x3),
+        .body_y3(body_y3),
+        .body_x4(body_x4),
+        .body_y4(body_y4),
+        .body_x5(body_x5),
+        .body_y5(body_y5),
+        .row(row),
+        .line(line)
+        );
+        assign row1=row;
+        assign line1=line;
+  endmodule
